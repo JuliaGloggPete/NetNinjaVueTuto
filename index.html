@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        .box{
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background-color: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+
+
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, Vue</h1>
+
+    <div id="app">
+        <!--attribute binding
+        <a :href="url">website </a>
+         : === v-bind -->
+        <div v-if="showBooks"> 
+      <ul>
+        <li v-for="item in books" :class="{ fav: item.isFav }">
+            <img :src="item.img" :alt="item.title">
+            <h3>{{item.title}}</h3>
+            <p>{{item.author}}</p>
+        </li>
+
+
+      </ul>
+    </div>
+       <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+    
+    </button>
+    
+
+  <!-- less time consuming då css code
+    <div v-show="showBooks">currently showing books</div> 
+  -->
+  <br>
+  <!-- mouse events - hurray-->
+
+  <div class="box" @mouseover="handleEvent($event, 5)">mouseover(enter)</div>
+  <div class="box" v-on:mouseleave="handleEvent">mouseleave</div>
+  <div class="box" @dblclick ="handleEvent">double click</div>
+  <div class="box" @mousemove="handleMousemove"> posittion x {{x}} posittion {{y}}</div>
+
+    </div>
+
+
+   
+
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
