@@ -22,6 +22,12 @@ methods:{
        this.showBooks = !this.showBooks
 
     },
+    toggleIsFav(book){
+
+      book.isFav = !book.isFav
+       console.log("Is clicked")
+
+    },
     handleEvent(e, data)//e = always the first argument därför $event om man vill ha det med och en till param
     {
         console.log(e, e.type)
@@ -36,6 +42,11 @@ methods:{
     }
   
    
+},
+computed:{
+    filteredBooks(){
+        return this.books.filter((book)=> book.isFav)
+    }
 }
 
 //template: '<h2> Hallo </h2>'
